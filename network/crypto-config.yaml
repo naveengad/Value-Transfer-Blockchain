@@ -1,0 +1,18 @@
+OrdererOrgs:
+  - Name: OrgOrderer 
+    Domain: hf.baltransfer.io
+    Specs:
+      - Hostname: orderer
+PeerOrgs:
+  - Name: Org1
+    Domain: org1.hf.baltransfer.io
+    Template:
+      Count: 2
+    Users:
+      Count: 2
+  - Name: Org2
+    Domain: org2.hf.baltransfer.io
+    Template:
+      Count: 2
+    Users:
+      Count: 2
