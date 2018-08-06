@@ -1,13 +1,13 @@
 # Value-Transfer-Blockchain
 Value transfer app on blockchain using Hyperledger Fabric and Fabric-SDK-Go frameworks
 
-Requirements: docker and Go
+. Requirements: docker and Go
 
-Run 'make' to execute the testcases
+. Run 'make' to execute the testcases
 
-Network has one channel, 2 organizations, and 1 orderer.
+. Network has one channel, 2 organizations, and 1 orderer.
 
-APIs available:
+. APIs available
    
    addAccount: To add account
    
