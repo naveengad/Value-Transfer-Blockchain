@@ -22,10 +22,10 @@ func (t *TestChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
 
 	function, args := stub.GetFunctionAndParameters()
 
-	if function == "query" {
-		return t.query(stub, args)
-	} else if function == "transfer" {
-		return t.invoke(stub, args)
+	if function == "queryAccount" {
+		return t.queryAccount(stub, args)
+	} else if function == "valueTransfer" {
+		return t.valueTransfer(stub, args)
 	} else if function == "addAccount" {
 		return t.addAccount(stub, args)
 	}
@@ -49,9 +49,9 @@ func (t *TestChaincode) addAccount(stub shim.ChaincodeStubInterface, args []stri
 	return shim.Success([]byte("Added account successfully"))
 }
 
-// query
+// queryAccount
 // Every readonly functions in the ledger will be here
-func (t *TestChaincode) query(stub shim.ChaincodeStubInterface, args []string) pb.Response {
+func (t *TestChaincode) queryAccount(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 	fmt.Println("~~~~~~~~ querying ~~~~~~~~")
 
         AvalBal, err := stub.GetState(args[0])
@@ -63,9 +63,9 @@ func (t *TestChaincode) query(stub shim.ChaincodeStubInterface, args []string) p
         return shim.Success(AvalBal)
 }
 
-// invoke
+// valueTransfer
 // Every write function in the ledger will be here
-func (t *TestChaincode) invoke(stub shim.ChaincodeStubInterface, args []string) pb.Response {
+func (t *TestChaincode) valueTransfer(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 	fmt.Println("~~~~~~~~ invoking ~~~~~~~~")
         state1, err := stub.GetState(args[0])
         if err != nil {

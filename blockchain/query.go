@@ -7,7 +7,7 @@ import (
 
 func (setup *FabricSetup) QueryTransactionTest(args []string) (string, error) {
 
-	response, err := setup.client1.Execute(chclient.Request{ChaincodeID: setup.ChainCodeID, Fcn: "transfer", Args: [][]byte{[]byte(args[0]),[]byte(args[1]),[]byte(args[2])}})
+	response, err := setup.client1.Execute(chclient.Request{ChaincodeID: setup.ChainCodeID, Fcn: "valueTransfer", Args: [][]byte{[]byte(args[0]),[]byte(args[1]),[]byte(args[2])}})
 
 	if err != nil {
 		return "", fmt.Errorf("failed to query: %v", err)
@@ -18,7 +18,7 @@ func (setup *FabricSetup) QueryTransactionTest(args []string) (string, error) {
 
 func (setup *FabricSetup) QueryVerifyTest(name string) (string, error) {
 
-	response, err := setup.client2.Query(chclient.Request{ChaincodeID: setup.ChainCodeID, Fcn: "query", Args: [][]byte{[]byte(name)}})
+	response, err := setup.client2.Query(chclient.Request{ChaincodeID: setup.ChainCodeID, Fcn: "queryAccount", Args: [][]byte{[]byte(name)}})
 
 	if err != nil {
 		return "", fmt.Errorf("failed to query: %v", err)
