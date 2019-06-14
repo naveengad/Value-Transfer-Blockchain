@@ -6,8 +6,7 @@ dev: build run
 
 ##### BUILD
 build:
-	@echo "Build ..."
-	@http_proxy="http://www-proxy-adcq7-new.us.oracle.com:80" https_proxy="http://www-proxy-adcq7-new.us.oracle.com:80" dep ensure
+	@echo "Build ..."	
 	@go build
 	@echo "Build done"
 
